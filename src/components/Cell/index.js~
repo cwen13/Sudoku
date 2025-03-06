@@ -1,0 +1,16 @@
+import React, { useState, useEffect } from 'react';
+
+
+const cell = (props) => {
+
+
+  return (
+      <section class="cell">
+	<section class="selection">
+	  <input class="cell-input" id="{row-column}"/>
+	</section>
+      </section>
+  );
+};
+
+export default cell;

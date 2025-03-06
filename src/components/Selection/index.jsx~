@@ -1,0 +1,13 @@
+import React, { useState, useEffect } from 'react';
+import "./style.css";
+
+const Selection = (props) => {
+
+  return(
+    <>
+      <div>easy</div>
+      <div> medium</div>
+      <div>hard</div>
+    </>
+  );
+};

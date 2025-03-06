@@ -1,0 +1,10 @@
+#difficulty {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.level {
+  border: 1px solid orange;
+}

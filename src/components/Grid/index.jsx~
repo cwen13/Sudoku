@@ -1,0 +1,29 @@
+import React, { useState, useEffect } from 'react';
+import Square from "./../Square";
+
+
+const Grid = (props) => {
+
+  return(
+    <section className="grid">
+      <section className="row">
+	<Square className="sqr-0" />
+	<Square className="sqr-1" />
+	<Square className="sqr-2" />
+      </section>
+      <section className="row">
+	<Square className="sqr-0" />
+	<Square className="sqr-1" />
+	<Square className="sqr-2" />
+      </section>
+      <section className="row">
+	<Square className="sqr-0" />
+	<Square className="sqr-1" />
+	<Square className="sqr-2" />
+      </section>
+    </section>
+
+  );
+};
+
+export default Grid;

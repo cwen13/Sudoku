@@ -1,0 +1,35 @@
+import React, { useState, useEffect } from 'react';
+import "./style.css";
+
+const Cell = (props) => {
+
+  /*  const [cellValue, setCellValue] = useState([props.cellValue]);
+
+  updateSudokuGrid = (cell, cellValue) => {
+
+  };
+  
+  useEffect(() => {
+    //update sudokuGrid
+    updateSudokuGrid(cell, cellValue);
+    // store cell update in local storage
+    localStorage.setItem("sudokuGrid", JSON.stringify(props.sudokuGrid));
+    
+  // update cell function
+  },[sudokuGrid]); 
+  */
+  return(
+    /*    <section className="cell sqr-${props.square} row-${props.row} col-${props.col"">*/
+    <section className="cell">
+	<section className="selection">
+	  <div className="cell-value">
+	    {props.cellValue
+	     ? props.cellValue
+	     : "1"}
+	  </div>
+	</section>
+      </section>
+  );
+};
+
+export default Cell;

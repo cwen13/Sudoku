@@ -1,0 +1,14 @@
+import React, { useState, useEffect } from 'react';
+import "./style.css";
+
+const Sidebar = (props) => {
+
+  return(
+    <section>
+      Here is the side bar
+      
+    </section>
+  );
+};
+
+export default Sidebar;
