@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useGridContext, GridContext, emptyGrid } from "./../../utils/GridContext.jsx";
-import Numpad from "./Numpad.jsx";
+import Selection from "./../Selection";
 
 import "./style.css";
 
@@ -16,7 +16,7 @@ const Sidebar = (props) => {
   return(
     <section className="sidebar">
       Here is the side bar
-      <Numpad />
+      <Selection />
       <section id="gameplay">
 	<button id="reset"
 		type="button"
@@ -29,15 +29,10 @@ const Sidebar = (props) => {
 	>
 	  undo
 	</button>
-	<button id="clear"
-		type="button"
-	>
-	  clear cell
-	</button>
 	<button id="highlight"
 		type="button"
 	>
-	  toggle highlighting
+	  highlighting
 	</button>	
 	    
       </section>
