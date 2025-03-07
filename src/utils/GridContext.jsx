@@ -1,11 +1,5 @@
 import React, { useContext, createContext, useState, useEffect, useCallback } from "react";
 
-
-
-export const GridContext = createContext(null);
-
-export const GridContextProvider = ({ children }) => {
-
   let emptyGrid = {
     r1:[0,0,0,0,0,0,0,0,0],
     r2:[0,0,0,0,0,0,0,0,0],
@@ -18,21 +12,20 @@ export const GridContextProvider = ({ children }) => {
     r9:[0,0,0,0,0,0,0,0,0],
   };
 
+export const GridContext = createContext(null);
+
+export const GridContextProvider = ({ children }) => {
+
   const [sudokuGrid, setSudokuGrid] = useState(() => {
     let grid = localStorage.getItem("sudokuGrid");
     return (grid ? JSON.parse(grid) : emptyGrid);
-  });
-
-  useEffect(() => {
-    // update grid with current state from local storage
-    setSudokuGrid(JSON.parse(localStorage.getItem("sudokuGrid")));
-  }, []);
+    });
 
   useEffect(() => {
     console.log("TRIGGERED:", sudokuGrid);
     localStorage.setItem("sudokuGrid", JSON.stringify(sudokuGrid));
     console.log("AFTTER SETTING:", sudokuGrid);
-  }, [sudokuGrid, setSudokuGrid]);
+  }, [ sudokuGrid ]);
   
   return (
     <GridContext.Provider value={{sudokuGrid,

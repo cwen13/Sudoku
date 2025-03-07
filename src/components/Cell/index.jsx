@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useGridContext } from "./../../utils/GridContext.jsx";
+import { useGridContext, GridContext } from "./../../utils/GridContext.jsx";
 
 import "./style.css";
 
@@ -30,13 +30,17 @@ const Cell = (props) => {
   }
   
   const handleValueChange = (e) => {
-    // update grid from context
+    //from AI not sure but causes short circuit
+    //if (!e || !e.type) return; // Check if e is null or undefined
+    //const context = useContext(GridContext);
     setCellValue(e.target.value);
+
   };
 
   useEffect(() => {
     let newSudokuGrid = sudokuGrid;
     newSudokuGrid[`r${row}`][col-1] = Number(cellValue);
+    console.log("NEW GRID:", newSudokuGrid);
     setSudokuGrid(newSudokuGrid);    
   },[cellValue]);
   
