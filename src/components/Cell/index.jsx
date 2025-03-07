@@ -40,7 +40,6 @@ const Cell = (props) => {
   useEffect(() => {
     let newSudokuGrid = sudokuGrid;
     newSudokuGrid[`r${row}`][col-1] = Number(cellValue);
-    console.log("NEW GRID:", newSudokuGrid);
     setSudokuGrid(newSudokuGrid);    
   },[cellValue]);
   

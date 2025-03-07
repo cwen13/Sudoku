@@ -1,9 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import "./style.css";
+import { useGridContext, GridContext, emptyGrid } from "./../../utils/GridContext.jsx";
 import Numpad from "./Numpad.jsx";
+
+import "./style.css";
 
 const Sidebar = (props) => {
 
+    const { sudokuGrid, setSudokuGrid } = useGridContext(); 
+  
+  const resetGrid = () => {
+    setSudokuGrid(emptyGrid);
+  }
+
+  
   return(
     <section className="sidebar">
       Here is the side bar
@@ -11,6 +20,7 @@ const Sidebar = (props) => {
       <section id="gameplay">
 	<button id="reset"
 		type="button"
+		onClick={resetGrid}
 	>
 	  reset
 	</button>

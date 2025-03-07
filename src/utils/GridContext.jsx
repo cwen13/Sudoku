@@ -1,6 +1,6 @@
 import React, { useContext, createContext, useState, useEffect, useCallback } from "react";
 
-  let emptyGrid = {
+export const  emptyGrid = {
     r1:[0,0,0,0,0,0,0,0,0],
     r2:[0,0,0,0,0,0,0,0,0],
     r3:[0,0,0,0,0,0,0,0,0],
