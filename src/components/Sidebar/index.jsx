@@ -6,13 +6,8 @@ import "./style.css";
 
 const Sidebar = (props) => {
 
-    const { sudokuGrid, setSudokuGrid } = useGridContext(); 
-  
-  const resetGrid = () => {
-    setSudokuGrid(emptyGrid);
-  }
-
-  
+  const { setSudokuGrid } = useGridContext(); 
+    
   return(
     <section className="sidebar">
       Here is the side bar
@@ -20,7 +15,7 @@ const Sidebar = (props) => {
       <section id="gameplay">
 	<button id="reset"
 		type="button"
-		onClick={resetGrid}
+		onClick={() => setSudokuGrid(emptyGrid)}
 	>
 	  reset
 	</button>

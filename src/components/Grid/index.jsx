@@ -26,11 +26,11 @@ const Grid = (props) => {
 /*  useEffect(() => {
     let localGrid = JSON.decode(localStoage.getItem("localGrid"));
     setGrid(localGrid);
-  }, []);
+    }, []);
+    */
   useEffect(() => {
-    localStorage.setItem("localGrid", JSON.stringify(sudokuGrid));
+    
   }, [sudokuGrid]);
-*/
   
   let entry = 0;
   

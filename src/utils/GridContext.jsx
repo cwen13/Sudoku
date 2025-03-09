@@ -22,9 +22,8 @@ export const GridContextProvider = ({ children }) => {
     });
 
   useEffect(() => {
-    console.log("TRIGGERED:", sudokuGrid);
     localStorage.setItem("sudokuGrid", JSON.stringify(sudokuGrid));
-    console.log("AFTTER SETTING:", sudokuGrid);
+
   }, [ sudokuGrid ]);
   
   return (
