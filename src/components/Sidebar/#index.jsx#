@@ -10,8 +10,6 @@ const Sidebar = (props) => {
 	  highlight,
 	  setHightlight } = useGridContext(); 
   
-
-  
   return(
     <section className="sidebar">
       Here is the side bar

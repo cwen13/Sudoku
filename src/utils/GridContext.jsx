@@ -20,7 +20,8 @@ export const GridContextProvider = ({ children }) => {
     let grid = localStorage.getItem("sudokuGrid");
     return (grid ? JSON.parse(grid) : emptyGrid);
     });
-
+  const [highlight, setHightlight] = useState(false);
+  
   useEffect(() => {
     localStorage.setItem("sudokuGrid", JSON.stringify(sudokuGrid));
 
@@ -28,7 +29,9 @@ export const GridContextProvider = ({ children }) => {
   
   return (
     <GridContext.Provider value={{sudokuGrid,
-				 setSudokuGrid}}>
+				  setSudokuGrid,
+				  highlight,
+				 setHightlight}}>
       {children}
     </GridContext.Provider>
   );

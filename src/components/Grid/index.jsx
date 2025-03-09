@@ -19,7 +19,7 @@ import "./style.css";
 
 const Grid = (props) => {
 
-  const { sudokuGrid } = useGridContext(); 
+  const { sudokuGrid, highlight } = useGridContext(); 
 
 //  const [sudokuGrid, setSudokuGrid] = useState(SudokuGrid);
 
@@ -42,7 +42,8 @@ const Grid = (props) => {
 		   className={`row ${row}`}>
 	    {values.map((cellValue) => <Cell key={entry}
 					     index={entry++}
-					     cellValue={cellValue} />)}
+					     cellValue={cellValue}
+					     highlight = {highlight} />)}
 	  </section>
 	)
       })} 
