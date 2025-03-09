@@ -4,33 +4,10 @@ import { useGridContext } from "./../../utils/GridContext.jsx";
 
 import "./style.css";
 
-  let emptyGrid = {
-    r1:[0,0,0,0,0,0,0,0,0],
-    r2:[0,0,0,0,0,0,0,0,0],
-    r3:[0,0,0,0,0,0,0,0,0],
-    r4:[0,0,0,0,0,0,0,0,0],
-    r5:[0,0,0,0,0,0,0,0,0],
-    r6:[0,0,0,0,0,0,0,0,0],
-    r7:[0,0,0,0,0,0,0,0,0],
-    r8:[0,0,0,0,0,0,0,0,0],
-    r9:[0,0,0,0,0,0,0,0,0],
-  };
-
 
 const Grid = (props) => {
 
-  const { sudokuGrid, highlight } = useGridContext(); 
-
-//  const [sudokuGrid, setSudokuGrid] = useState(SudokuGrid);
-
-/*  useEffect(() => {
-    let localGrid = JSON.decode(localStoage.getItem("localGrid"));
-    setGrid(localGrid);
-    }, []);
-    */
-  useEffect(() => {
-    
-  }, [sudokuGrid]);
+  const { sudokuGrid, highlight, emptyGrid } = useGridContext(); 
   
   let entry = 0;
   
@@ -39,7 +16,7 @@ const Grid = (props) => {
       {Object.entries(sudokuGrid).map(([row, values]) => {
 	return(
 	  <section key={entry+81}
-		   className={`row ${row}`}>
+		   className={`row row-${row.slice} ${highlight ? "highlight" : ""}`}>
 	    {values.map((cellValue) => <Cell key={entry}
 					     index={entry++}
 					     cellValue={cellValue}
