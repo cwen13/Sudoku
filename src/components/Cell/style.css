@@ -2,24 +2,36 @@
   border: 1px solid grey;
   width: 2rem;
   height: 2rem;
-  align-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  & .selection {
+    width: 1.5rem;
+    height: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+  }
   &:hover .selection {
     border: 1px dashed red;
   }
-}
 
-.selection {
-    width: 1.5rem;
-    heigth: 1.5rem;
 }
 
 .cell-value {
   width: 1.25rem;
   height: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
 }
 
 input {
-  width: 1rem;
-  heigth: 1rem;
+  width: max-content;
+  heigth: max-content;
   border: 0;
+  text-align: center;
 }
+

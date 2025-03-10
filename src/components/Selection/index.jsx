@@ -3,11 +3,16 @@ import "./style.css";
 
 const Selection = (props) => {
 
+
+  
   return(
     <section id="difficulty">
-      <div className="level">easy</div>
-      <div className="level"> medium</div>
-      <div className="level">hard</div>
+      <div id="easy"
+	   className="level">EASY</div>
+      <div id="medium"
+	   className="level">MEDIUM</div>
+      <div id="hard"
+	   className="level">HARD</div>
     </section>
   );
 };

@@ -1,5 +1,5 @@
 .grid {
-  border: 4px solid black;
+  border: 4px solid white;
   display: flex;
   flex-direction: column;
 }
@@ -9,16 +9,24 @@
   flex-direction: row;
 }
 
+/* sections */
+.row:nth-child(3),
+.row:nth-child(6){
+  border-bottom: 0.25rem solid white;
+}
+
+.grid:has(.row > .col-3) .row > .col-3,
+.grid:has(.row > .col-6) .row > .col-6 {
+  border-right: 0.25rem solid white;
+}
+
+/* row highlighting  */
 .highlight .row:hover {
-  background-color: grey;
+  background-color: #aeabab;
+  color: black;
 }
 
-/*
-.highlight:has(.col-1:hover) :nth-child(1) {
-  background-color: white;
-}
-*/
-
+/* column highlighting */
 .highlight:has(.row > .col-1:hover) .row > .col-1,
 .highlight:has(.row > .col-2:hover) .row > .col-2,
 .highlight:has(.row > .col-3:hover) .row > .col-3,
@@ -28,5 +36,6 @@
 .highlight:has(.row > .col-7:hover) .row > .col-7,
 .highlight:has(.row > .col-8:hover) .row > .col-8,
 .highlight:has(.row > .col-9:hover) .row > .col-9 {
-  background-color: red;
+  background-color: #aeabab;
+  color: black
 }
