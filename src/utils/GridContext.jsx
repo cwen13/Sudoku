@@ -20,18 +20,24 @@ export const GridContextProvider = ({ children }) => {
     let grid = localStorage.getItem("sudokuGrid");
     return (grid ? JSON.parse(grid) : emptyGrid);
     });
-  const [highlight, setHightlight] = useState(false);
+  const [highlight, setHightlight] = useState(() => {
+    let highlighting = localStorage.getItem("highlight");
+    return (highlighting != undefined ? highlighting : false);
+  });
   
   useEffect(() => {
     localStorage.setItem("sudokuGrid", JSON.stringify(sudokuGrid));
-
   }, [ sudokuGrid ]);
+
+  useEffect(() => {
+    localStorage.setItem("highlight", highlight);
+  }, [ highlight]);
   
   return (
     <GridContext.Provider value={{sudokuGrid,
 				  setSudokuGrid,
 				  highlight,
-				 setHightlight}}>
+				  setHightlight}}>
       {children}
     </GridContext.Provider>
   );
