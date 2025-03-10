@@ -35,3 +35,6 @@ input {
   text-align: center;
 }
 
+.cellHighlight {
+  background-color: black;
+}

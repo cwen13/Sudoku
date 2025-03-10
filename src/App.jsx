@@ -6,23 +6,31 @@ import Grid from "./components/Grid";
 import Sidebar from "./components/Sidebar";
 import { GridContextProvider } from "./utils/GridContext";
 
-
 function App() {
-
   
   return (
     <>
       <GridContextProvider>
       <header>
-	<p>React to the Sudoku</p>
+	<p>REACTJS:  Sudoku</p>
       </header>
       <section className="main-page">
 	<Grid id="grid" />
 	<Sidebar id="sidebar" />
       </section>
       <footer>
-	<p> made with vite</p>
+	<div>
+	  <p>Made with React and Vite</p>
+	  <p>
+	    
+	    Source code <a href="https://github.com/cwen13/Sudoku"
+			    target="_blank"
+			>here</a>
+	  </p>
+	  <p>Made by Cody Wenrich-Clegg</p>
+	  </div>
       </footer>
+
       </GridContextProvider>
     </>
   )

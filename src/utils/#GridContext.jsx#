@@ -41,7 +41,7 @@ export const GridContextProvider = ({ children }) => {
 				  setSudokuGrid,
 				  highlight,
 				  setHightlight,
-				 selectValue,
+				  selectValue,
 				  setSelectValue}}>
       {children}
     </GridContext.Provider>
