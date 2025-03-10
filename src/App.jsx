@@ -4,7 +4,6 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import Grid from "./components/Grid"; 
 import Sidebar from "./components/Sidebar";
-import Selection from "./components/Selection";
 import { GridContextProvider } from "./utils/GridContext";
 
 
@@ -17,7 +16,6 @@ function App() {
       <header>
 	<p>React to the Sudoku</p>
       </header>
-      <Selection />
       <section className="main-page">
 	<Grid id="grid" />
 	<Sidebar id="sidebar" />

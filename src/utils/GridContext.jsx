@@ -1,12 +1,6 @@
 import React, { useContext, createContext, useState, useEffect, useCallback } from "react";
 
-
-
-export const GridContext = createContext(null);
-
-export const GridContextProvider = ({ children }) => {
-
-  let emptyGrid = {
+export const  emptyGrid = {
     r1:[0,0,0,0,0,0,0,0,0],
     r2:[0,0,0,0,0,0,0,0,0],
     r3:[0,0,0,0,0,0,0,0,0],
@@ -18,25 +12,32 @@ export const GridContextProvider = ({ children }) => {
     r9:[0,0,0,0,0,0,0,0,0],
   };
 
+export const GridContext = createContext(null);
+
+export const GridContextProvider = ({ children }) => {
+
   const [sudokuGrid, setSudokuGrid] = useState(() => {
     let grid = localStorage.getItem("sudokuGrid");
     return (grid ? JSON.parse(grid) : emptyGrid);
+    });
+  const [highlight, setHightlight] = useState(() => {
+    let highlighting = localStorage.getItem("highlight");
+    return (highlighting != undefined ? highlighting : false);
   });
-
+  
   useEffect(() => {
-    // update grid with current state from local storage
-    setSudokuGrid(JSON.parse(localStorage.getItem("sudokuGrid")));
-  }, []);
-
-  useEffect(() => {
-    console.log("TRIGGERED:", sudokuGrid);
     localStorage.setItem("sudokuGrid", JSON.stringify(sudokuGrid));
-    console.log("AFTTER SETTING:", sudokuGrid);
-  }, [sudokuGrid, setSudokuGrid]);
+  }, [ sudokuGrid ]);
+
+  useEffect(() => {
+    localStorage.setItem("highlight", highlight);
+  }, [ highlight]);
   
   return (
     <GridContext.Provider value={{sudokuGrid,
-				 setSudokuGrid}}>
+				  setSudokuGrid,
+				  highlight,
+				  setHightlight}}>
       {children}
     </GridContext.Provider>
   );

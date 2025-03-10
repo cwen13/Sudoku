@@ -1,16 +1,23 @@
 import React, { useState, useEffect } from 'react';
+import { useGridContext, GridContext, emptyGrid } from "./../../utils/GridContext.jsx";
+import Selection from "./../Selection";
+
 import "./style.css";
-import Numpad from "./Numpad.jsx";
 
 const Sidebar = (props) => {
 
+  const { setSudokuGrid,
+	  highlight,
+	  setHightlight } = useGridContext(); 
+  
   return(
     <section className="sidebar">
       Here is the side bar
-      <Numpad />
+      <Selection />
       <section id="gameplay">
 	<button id="reset"
 		type="button"
+		onClick={() => setSudokuGrid(emptyGrid)}
 	>
 	  reset
 	</button>
@@ -19,15 +26,11 @@ const Sidebar = (props) => {
 	>
 	  undo
 	</button>
-	<button id="clear"
-		type="button"
-	>
-	  clear cell
-	</button>
 	<button id="highlight"
 		type="button"
+		onClick={() => setHightlight(!highlight)}
 	>
-	  toggle highlighting
+	  highlighting
 	</button>	
 	    
       </section>

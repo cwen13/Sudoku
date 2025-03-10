@@ -8,3 +8,25 @@
   display: flex;
   flex-direction: row;
 }
+
+.highlight .row:hover {
+  background-color: grey;
+}
+
+/*
+.highlight:has(.col-1:hover) :nth-child(1) {
+  background-color: white;
+}
+*/
+
+.highlight:has(.row > .col-1:hover) .row > .col-1,
+.highlight:has(.row > .col-2:hover) .row > .col-2,
+.highlight:has(.row > .col-3:hover) .row > .col-3,
+.highlight:has(.row > .col-4:hover) .row > .col-4,
+.highlight:has(.row > .col-5:hover) .row > .col-5,
+.highlight:has(.row > .col-6:hover) .row > .col-6,
+.highlight:has(.row > .col-7:hover) .row > .col-7,
+.highlight:has(.row > .col-8:hover) .row > .col-8,
+.highlight:has(.row > .col-9:hover) .row > .col-9 {
+  background-color: red;
+}

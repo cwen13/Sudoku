@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useGridContext } from "./../../utils/GridContext.jsx";
+import { useGridContext, GridContext } from "./../../utils/GridContext.jsx";
 
 import "./style.css";
 
@@ -7,21 +7,11 @@ const Cell = (props) => {
 
   const { sudokuGrid, setSudokuGrid } = useGridContext(); 
   
-  const [cellValue, setCellValue] = useState(props.cellValue);
   const [isEditing, setIsEditing] = useState(false);
 
   let col = (props.index % 9) + 1;
   let row = Math.floor(props.index / 9) + 1;
   
-  /*
-  const handleStartEditing = () => {
-    setIsEditing(true);
-  };
-
-  const handleStopEditing = () => {
-    setIsEditing(false);
-    };
-  */
   const handleCellClick = () => {
     setIsEditing(true);
   }
@@ -30,15 +20,11 @@ const Cell = (props) => {
   }
   
   const handleValueChange = (e) => {
-    // update grid from context
-    setCellValue(e.target.value);
+    let newSudokuGrid = Object.assign({}, sudokuGrid);
+    newSudokuGrid[`r${row}`][col-1] = Number(e.target.value);
+    setSudokuGrid(newSudokuGrid);
   };
 
-  useEffect(() => {
-    let newSudokuGrid = sudokuGrid;
-    newSudokuGrid[`r${row}`][col-1] = Number(cellValue);
-    setSudokuGrid(newSudokuGrid);    
-  },[cellValue]);
   
   return(
     <section className={`cell row-${row} col-${col}`}>
@@ -50,7 +36,7 @@ const Cell = (props) => {
 		      autoComplete="off"
 		      maxLength={1}
 		      patter="[0-9]"
-		      value={cellValue}
+		      value={props.cellValue}
 		      onChange={handleValueChange}
 		      onMouseLeave={handleMouseLeave}
 		      
@@ -60,7 +46,7 @@ const Cell = (props) => {
 		 <div className="cell-value"
 		      onClick={handleCellClick}
 		 >
-		 {cellValue}
+		 {props.cellValue}
 	       </div>
 		 </>)
 	  }
