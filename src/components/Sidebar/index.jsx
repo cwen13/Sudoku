@@ -12,7 +12,6 @@ const Sidebar = (props) => {
   
   return(
     <section className="sidebar">
-      Here is the side bar
       <Selection />
       <section id="gameplay">
 	<button id="reset"
