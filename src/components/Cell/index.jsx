@@ -27,7 +27,7 @@ const Cell = (props) => {
 
   
   return(
-    <section className={`cell row-${row} col-${col} ${props.highlight ? "highlight" : ""}`}>
+    <section className={`cell row-${row} col-${col}`}>
 	<section className="selection">
 	  {isEditing
 	   ? ( <>

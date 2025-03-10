@@ -12,15 +12,15 @@ const Grid = (props) => {
   let entry = 0;
   
   return(
-    <section className="grid">
+    <section className={`grid ${highlight ? "highlight" : "" }`}>
       {Object.entries(sudokuGrid).map(([row, values]) => {
 	return(
 	  <section key={entry+81}
-		   className={`row row-${row.slice} ${highlight ? "highlight" : ""}`}>
+		   className={`row row-${row.slice(-1)}`}>
 	    {values.map((cellValue) => <Cell key={entry}
 					     index={entry++}
 					     cellValue={cellValue}
-					     highlight = {highlight} />)}
+				       />)}
 	  </section>
 	)
       })} 
