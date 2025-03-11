@@ -13,23 +13,42 @@ const Cell = (props) => {
   
   const [isEditing, setIsEditing] = useState(false);
 
+  const cellValueRef = React.createRef();
+
   let col = (props.index % 9) + 1;
   let row = Math.floor(props.index / 9) + 1;
 
   const handleMouseClick = () => {
     setIsEditing(true);
-    setSelectValue(props.cellValue);
+    (props.cellValue != ""
+     ? setSelectValue(props.cellValue)
+     : setSelectValue());
   };
+  
   const handleMouseLeave = () => {
     setIsEditing(false);
   };
   
   const handleValueChange = (e) => {
     let newSudokuGrid = Object.assign({}, sudokuGrid);
-    newSudokuGrid[`r${row}`][col-1] = Number(e.target.value);
-    setSudokuGrid(newSudokuGrid);
-    seSelectValue(Number(e.target.value));
+    if(Number(e.target.value) > 0 && Number(e.target.value) < 10) {
+      newSudokuGrid[`r${row}`][col-1] = Number(e.target.value);
+      setSudokuGrid(newSudokuGrid);
+      (e.target.value != 0
+       ? setSelectValue(Number(e.target.value))
+       : setSelectValue(setSelectValue))
+    }
   };
+
+
+  useEffect(() => {
+    if(isEditing) {
+      if(cellValueRef.current) {
+	console.log("CURRENT");
+	cellValueRef.current.select()
+      }
+    }
+  }, [isEditing]);
 
   
   return(
@@ -38,13 +57,14 @@ const Cell = (props) => {
 	  {isEditing
 	   ? ( <>
 		 <input className="cell-value"
-		      type="numeric"
-		      autoComplete="off"
-		      maxLength={1}
-		      patter="[0-9]"
-		      value={props.cellValue}
-		      onChange={handleValueChange}
-		      onMouseLeave={handleMouseLeave}
+			type="numeric"
+			autoComplete="off"
+			maxLength={1}
+			patter="[1-9]"
+			value={props.cellValue}
+			onChange={handleValueChange}
+			onMouseLeave={handleMouseLeave}
+			ref={cellValueRef}
 		      
 	       />
 		 </>)

@@ -14,7 +14,6 @@ const Grid = (props) => {
   
   let entry = 0;
 
-  
 
   return(
     <section className={`grid ${highlight ? "highlight" : "" }`}>
