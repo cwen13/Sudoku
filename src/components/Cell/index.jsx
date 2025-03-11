@@ -28,23 +28,37 @@ const Cell = (props) => {
   const handleMouseLeave = () => {
     setIsEditing(false);
   };
+
+  const handleKeyDown = (e) => {
+    let newSudokuGrid = Object.assign({}, sudokuGrid);
+    if(e.code == "Backspace") {
+      newSudokuGrid[`r${row}`][col-1] = Number("");
+      setSudokuGrid(newSudokuGrid);
+    }
+  };
   
   const handleValueChange = (e) => {
     let newSudokuGrid = Object.assign({}, sudokuGrid);
+
+    console.log("change:", e);
+    
     if(Number(e.target.value) > 0 && Number(e.target.value) < 10) {
       newSudokuGrid[`r${row}`][col-1] = Number(e.target.value);
       setSudokuGrid(newSudokuGrid);
       (e.target.value != 0
        ? setSelectValue(Number(e.target.value))
        : setSelectValue(setSelectValue))
+    } else {
+      newSudokuGrid[`r${row}`][col-1] = "";
+      setSudokuGrid(newSudokuGrid);
     }
+      
   };
 
 
   useEffect(() => {
     if(isEditing) {
       if(cellValueRef.current) {
-	console.log("CURRENT");
 	cellValueRef.current.select()
       }
     }
@@ -64,6 +78,7 @@ const Cell = (props) => {
 			value={props.cellValue}
 			onChange={handleValueChange}
 			onMouseLeave={handleMouseLeave}
+			onKeyDown={handleKeyDown}
 			ref={cellValueRef}
 		      
 	       />
