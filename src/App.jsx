@@ -20,14 +20,13 @@ function App() {
       </section>
       <footer>
 	<div>
-	  <p>Made with React and Vite</p>
+	  <p>Made with React and Vite by Cody Wenrich-Clegg</p>
 	  <p>
 	    
 	    Source code <a href="https://github.com/cwen13/Sudoku"
 			    target="_blank"
 			>here</a>
 	  </p>
-	  <p>Made by Cody Wenrich-Clegg</p>
 	  </div>
       </footer>
 

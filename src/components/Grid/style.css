@@ -21,21 +21,43 @@
 }
 
 /* row highlighting  */
-.highlight .row:hover {
+.highlight:has(.row .cell > .row-1:hover) .row .cell > .row-1,
+.highlight:has(.row .cell > .row-2:hover) .row .cell > .row-2,
+.highlight:has(.row .cell > .row-3:hover) .row .cell > .row-3,
+.highlight:has(.row .cell > .row-4:hover) .row .cell > .row-4,
+.highlight:has(.row .cell > .row-5:hover) .row .cell > .row-5,
+.highlight:has(.row .cell > .row-6:hover) .row .cell > .row-6,
+.highlight:has(.row .cell > .row-7:hover) .row .cell > .row-7,
+.highlight:has(.row .cell > .row-8:hover) .row .cell > .row-8,
+.highlight:has(.row .cell > .row-9:hover) .row .cell > .row-9 {
   background-color: #aeabab;
   color: black;
 }
 
 /* column highlighting */
-.highlight:has(.row > .col-1:hover) .row > .col-1,
-.highlight:has(.row > .col-2:hover) .row > .col-2,
-.highlight:has(.row > .col-3:hover) .row > .col-3,
-.highlight:has(.row > .col-4:hover) .row > .col-4,
-.highlight:has(.row > .col-5:hover) .row > .col-5,
-.highlight:has(.row > .col-6:hover) .row > .col-6,
-.highlight:has(.row > .col-7:hover) .row > .col-7,
-.highlight:has(.row > .col-8:hover) .row > .col-8,
-.highlight:has(.row > .col-9:hover) .row > .col-9 {
+.highlight:has(.row .cell > .col-1:hover) .row .cell > .col-1,
+.highlight:has(.row .cell > .col-2:hover) .row .cell > .col-2,
+.highlight:has(.row .cell > .col-3:hover) .row .cell > .col-3,
+.highlight:has(.row .cell > .col-4:hover) .row .cell > .col-4,
+.highlight:has(.row .cell > .col-5:hover) .row .cell > .col-5,
+.highlight:has(.row .cell > .col-6:hover) .row .cell > .col-6,
+.highlight:has(.row .cell > .col-7:hover) .row .cell > .col-7,
+.highlight:has(.row .cell > .col-8:hover) .row .cell > .col-8,
+.highlight:has(.row .cell > .col-9:hover) .row .cell > .col-9 {
   background-color: #aeabab;
-  color: black
+  color: black;
+}
+
+/* block highlight */
+.highlight:has(.row > .block-1:hover) .row > .block-1,
+.highlight:has(.row > .block-2:hover) .row > .block-2,
+.highlight:has(.row > .block-3:hover) .row > .block-3,
+.highlight:has(.row > .block-4:hover) .row > .block-4,
+.highlight:has(.row > .block-5:hover) .row > .block-5,
+.highlight:has(.row > .block-6:hover) .row > .block-6,
+.highlight:has(.row > .block-7:hover) .row > .block-7,
+.highlight:has(.row > .block-8:hover) .row > .block-8,
+.highlight:has(.row > .block-9:hover) .row > .block-9 {
+  background-color: rgba(147,146,147);
+  color: black;
 }

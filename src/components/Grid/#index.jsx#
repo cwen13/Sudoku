@@ -4,7 +4,6 @@ import { useGridContext } from "./../../utils/GridContext.jsx";
 
 import "./style.css";
 
-
 const Grid = (props) => {
 
   const { sudokuGrid,

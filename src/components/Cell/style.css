@@ -6,8 +6,8 @@
   align-items: center;
   justify-content: center;
   & .selection {
-    width: 1.75rem;
-    height: 1.75rem;
+    width: 2rem;
+    height: 2rem;
     display: flex;
     align-items: center;
     justify-content: center;
