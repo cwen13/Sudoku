@@ -14,9 +14,8 @@
 .row:nth-child(6){
   border-bottom: 0.25rem solid white;
 }
-
-.grid:has(.row > .col-3) .row > .col-3,
-.grid:has(.row > .col-6) .row > .col-6 {
+.grid:has(.row .cell > .col-3) .row .cell > .col-3,
+.grid:has(.row .cell > .col-6) .row .cell > .col-6 {
   border-right: 0.25rem solid white;
 }
 

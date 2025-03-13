@@ -16,12 +16,11 @@
   &:hover .selection {
     border: 1px dashed red;
   }
-
 }
 
 .cell-value {
-  width: 1.25rem;
-  height: 1.25rem;
+  width: 1.75rem;
+  height: 1.75rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -37,4 +36,8 @@ input {
 
 .cellHighlight {
   background-color: green;
+}
+
+.warning {
+  background-color: red;
 }

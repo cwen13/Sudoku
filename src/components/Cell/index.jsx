@@ -8,7 +8,9 @@ const Cell = (props) => {
   const { sudokuGrid,
 	  setSudokuGrid,
 	  selectValue,
-	  setSelectValue
+	  setSelectValue,
+	  rowWarnings,
+	  colWarnings
 	} = useGridContext(); 
   
   const [isEditing, setIsEditing] = useState(false);
@@ -86,9 +88,12 @@ const Cell = (props) => {
       return "block-9";
     }
   }
+
+  let RowWarnings = rowWarnings[`r${row}`].includes(props.cellValue);
+  let ColWarnings = colWarnings[`c${col}`].includes(props.cellValue);
   
   return(
-    <section className={`cell  ${blockNumber(props.index)}`}>
+    <section className={`cell ${blockNumber(props.index)} ${RowWarnings || ColWarnings ? "warning" : ""}`}>
       <section className={`row-${row} col-${col} selection ${selectValue == props.cellValue ? "cellHighlight" : ""}`}>
 	  {isEditing
 	   ? ( <>

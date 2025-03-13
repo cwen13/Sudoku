@@ -27,6 +27,21 @@ export const GridContextProvider = ({ children }) => {
   });
   
   const [selectValue, setSelectValue] = useState();
+
+    const [rowWarnings, setRowWarnings] = useState(
+    {
+      r1:[],r2:[],r3:[],
+      r4:[],r5:[],r6:[],
+      r7:[],r8:[],r9:[]
+    });
+
+  const [colWarnings, setColWarnings] = useState(
+    {
+      c1:[],c2:[],c3:[],
+      c4:[],c5:[],c6:[],
+      c7:[],c8:[],c9:[]
+    });
+
   
   useEffect(() => {
     localStorage.setItem("sudokuGrid", JSON.stringify(sudokuGrid));
@@ -35,6 +50,7 @@ export const GridContextProvider = ({ children }) => {
   useEffect(() => {
     localStorage.setItem("highlight", highlight);
   }, [ highlight]);
+
   
   return (
     <GridContext.Provider value={{sudokuGrid,
@@ -42,7 +58,11 @@ export const GridContextProvider = ({ children }) => {
 				  highlight,
 				  setHightlight,
 				  selectValue,
-				  setSelectValue}}>
+				  setSelectValue,
+				  rowWarnings,
+				  setRowWarnings,
+				  colWarnings,
+				  setColWarnings}}>
       {children}
     </GridContext.Provider>
   );
