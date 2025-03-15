@@ -30,7 +30,12 @@ const Sidebar = (props) => {
 		onClick={() => setHightlight(!highlight)}
 	>
 	  highlighting
-	</button>	
+	</button>
+	<button id="check"
+		type="button"
+	>
+	  check
+	  </button>
 	    
       </section>
     </section>
