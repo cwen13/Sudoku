@@ -34,17 +34,17 @@ const Cell = (props) => {
   const handleValueChange = (e) => {
     let newSudokuGrid = Object.assign({}, sudokuGrid);
     if(e.code == "Backspace") {
-      newSudokuGrid[`r${row}`][col-1] = Number("");
+      newSudokuGrid[`r${row}`][col-1].value = Number("");
       setSudokuGrid(newSudokuGrid);
     }
     if(Number(e.target.value) > 0 && Number(e.target.value) < 10) {
-      newSudokuGrid[`r${row}`][col-1] = Number(e.target.value);
+      newSudokuGrid[`r${row}`][col-1].value = Number(e.target.value);
       setSudokuGrid(newSudokuGrid);
       (e.target.value != 0
        ? setSelectValue(Number(e.target.value))
        : setSelectValue(setSelectValue))
     } else {
-      newSudokuGrid[`r${row}`][col-1] = "";
+      newSudokuGrid[`r${row}`][col-1].value = "";
       setSudokuGrid(newSudokuGrid);
     }      
   };
@@ -90,6 +90,7 @@ const Cell = (props) => {
   }
 
   let RowWarnings = rowWarnings[`r${row}`].includes(props.cellValue);
+
   let ColWarnings = colWarnings[`c${col}`].includes(props.cellValue);
   
   return(
@@ -103,6 +104,7 @@ const Cell = (props) => {
 			maxLength={1}
 			patter="[1-9]"
 			value={props.cellValue}
+			readOnly={props.locked}
 			onChange={handleValueChange}
 			onMouseLeave={handleMouseLeave}
 			ref={cellValueRef}

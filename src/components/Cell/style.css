@@ -38,6 +38,6 @@ input {
   background-color: green;
 }
 
-.warning {
+.warning .selection .cell-value{
   background-color: red;
 }

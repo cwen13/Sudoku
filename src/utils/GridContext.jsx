@@ -1,15 +1,15 @@
 import React, { useContext, createContext, useState, useEffect, useCallback } from "react";
 
 export const  emptyGrid = {
-    r1:["","","","","","","","",""],
-    r2:["","","","","","","","",""],
-    r3:["","","","","","","","",""],
-    r4:["","","","","","","","",""],
-    r5:["","","","","","","","",""],
-    r6:["","","","","","","","",""],
-    r7:["","","","","","","","",""],
-    r8:["","","","","","","","",""],
-    r9:["","","","","","","","",""],
+  r1:[{value:"", locked: false} ,{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false}],
+  r2:[{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false}],
+  r3:[{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false}],
+  r4:[{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false}],
+  r5:[{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false}],
+  r6:[{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false}],
+  r7:[{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false}],
+  r8:[{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false}],
+  r9:[{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false}],
   };
 
 export const GridContext = createContext(null);
@@ -85,27 +85,27 @@ export const getSudokuInfo = async (difficulty) => {
 
 const parseAPI = (data) => {
   let puzzleGrid = {
-    r1:["","","","","","","","",""],
-    r2:["","","","","","","","",""],
-    r3:["","","","","","","","",""],
-    r4:["","","","","","","","",""],
-    r5:["","","","","","","","",""],
-    r6:["","","","","","","","",""],
-    r7:["","","","","","","","",""],
-    r8:["","","","","","","","",""],
-    r9:["","","","","","","","",""],
+    r1:[{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false}],
+    r2:[{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false}],
+    r3:[{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false}],
+    r4:[{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false}],
+    r5:[{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false}],
+    r6:[{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false}],
+    r7:[{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false}],
+    r8:[{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false}],
+    r9:[{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false}],
   };
       
   let solutionGrid = {
-    r1:["","","","","","","","",""],
-    r2:["","","","","","","","",""],
-    r3:["","","","","","","","",""],
-    r4:["","","","","","","","",""],
-    r5:["","","","","","","","",""],
-    r6:["","","","","","","","",""],
-    r7:["","","","","","","","",""],
-    r8:["","","","","","","","",""],
-    r9:["","","","","","","","",""],
+    r1:[{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false}],
+    r2:[{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false}],
+    r3:[{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false}],
+    r4:[{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false}],
+    r5:[{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false}],
+    r6:[{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false}],
+    r7:[{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false}],
+    r8:[{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false}],
+    r9:[{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false},{value:"", locked: false}],
   };
 
   let revGrid = (data.puzzle).split("").reverse();
@@ -116,23 +116,23 @@ const parseAPI = (data) => {
     for (const row in puzzleGrid) {
       for (let i = 0; i < 9; i++) {
 	let entry = Number(revGrid.pop());
-	puzzleGrid[row][i] = (entry != 0 ? entry : "");
+	puzzleGrid[row][i].value = (entry != 0 ? entry : "");
+	puzzleGrid[row][i].locked = (entry != 0 ? true : false);
       }
     }
   }
-
+  
   // make solution grid
   while(revSol.length > 0 ) {
     for (const row in solutionGrid) {
       for (let i = 0; i < 9; i++) {
 	let entry = Number(revSol.pop());
-	solutionGrid[row][i] = (entry != 0 ? entry : "");
+	solutionGrid[row][i].value = (entry != 0 ? entry : "");
+	solutionGrid[row][i].locked = true;
       }
     }
   }
 
-//  console.log("PUZZLE:", puzzleGrid);
-//  console.log("SOLUTION:", solutionGrid);
   return {
     puzzle: puzzleGrid,
     solution: solutionGrid

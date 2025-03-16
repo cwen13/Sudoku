@@ -31,43 +31,47 @@ const Grid = (props) => {
   }, [sudokuGrid]);
 
   useEffect(() => {
-    let newWarnings = checkCols(sudokuGrid);
-    setColWarnings(newWarnings);
+    let cols = {
+      c1:[],c2:[],c3:[],
+      c4:[],c5:[],c6:[],
+      c7:[],c8:[],c9:[]
+    };
+    let column = 0;
+    for (const col in cols) {
+      cols[col] = checkCol(sudokuGrid, column++);
+    }
+    setColWarnings(cols);
   }, [sudokuGrid]);
   
   const checkRow = (row) => {
     let warnings = []
     let values = {1:0,2:0,3:0,4:0,5:0,6:0,7:0,8:0,9:0}
-    row.forEach((ele) => values[ele]++);
+    row.forEach((ele) =>  values[ele.value]++);
     for (const value in values) {
       if(values[value] > 1) warnings.push(Number(value));
     }
     return warnings;
   };
 
-  const checkCol = (grid, column) => {
-    let values = {1:0,2:0,3:0,4:0,5:0,6:0,7:0,8:0,9:0}
+  const makeCol = (grid, column) => {
     let col = [];
     for (const row in grid) {
-      col.push(grid[row][column]);
-    }
-    return checkRow(col);
+      col.push(grid[row][column].value);
+    };
+    return col;
   };
 
-  const checkCols = (grid) => {
-    let warnigns = [];
-    let cols = {
-      c1:[],c2:[],c3:[],
-      c4:[],c5:[],c6:[],
-      c7:[],c8:[],c9:[]
-    }
-    for (const col in cols) {
-      cols[col] = checkCol(grid, col.slice(-1)-1);
-    }
-    return cols;
+  const checkCol = (grid, column) => {
+    let warnings = [];
+    let values = {1:0,2:0,3:0,4:0,5:0,6:0,7:0,8:0,9:0};
+    let col = makeCol(grid, column);
+    col.forEach((ele) => values[ele]++);
+    for (const value in values) {      
+      if(values[value] > 1) warnings.push(Number(value));
+    }    
+    return warnings;
   };
       
-  
   return(
     <section className={`grid ${highlight ? "highlight" : "" }`}>
       {Object.entries(sudokuGrid).map(([row, values]) => {
@@ -76,15 +80,14 @@ const Grid = (props) => {
 		   className={`row row-${row.slice(-1)}`}>
 	    {values.map((cellValue) => <Cell key={entry}
 					     index={entry++}
-					     cellValue={cellValue}
+					     cellValue={cellValue.value}
+					     locked ={cellValue.locked}
 					     warningRow={rowWarnings[row]}
 				       />)}
 	  </section>
 	)
-      })} 
-		 
+      })} 	 
     </section>
-
   );
 };
 
