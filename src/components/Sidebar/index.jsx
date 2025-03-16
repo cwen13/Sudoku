@@ -8,7 +8,12 @@ const Sidebar = (props) => {
 
   const { setSudokuGrid,
 	  highlight,
-	  setHightlight } = useGridContext(); 
+	  setHightlight,
+	  checkPuzzle } = useGridContext(); 
+
+  const solve = () => {
+    setSudokuGrid(JSON.parse(localStorage.getItem("solution")));
+  }
   
   return(
     <section className="sidebar">
@@ -30,7 +35,19 @@ const Sidebar = (props) => {
 		onClick={() => setHightlight(!highlight)}
 	>
 	  highlighting
-	</button>	
+	</button>
+	<button id="check"
+		type="button"
+		onClick={() => checkPuzzle()}
+	>
+	  check
+	  </button>
+	<button id="solve"
+		type="button"
+		onClick={() => solve()}
+	>
+	  solve
+	  </button>
 	    
       </section>
     </section>
