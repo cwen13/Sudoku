@@ -11,6 +11,7 @@ const Selection = (props) => {
     console.log(e.target.id);
     let newGrid = await getSudokuInfo(e.target.id);
     setSudokuGrid(newGrid.puzzle);
+    localStorage.setItem("solution", JSON.stringify(newGrid.solution));
   };
   
   

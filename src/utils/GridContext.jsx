@@ -50,6 +50,24 @@ export const GridContextProvider = ({ children }) => {
     localStorage.setItem("highlight", highlight);
   }, [ highlight]);
 
+  const checkPuzzle = () => {
+    console.log("CHECKING");
+    let solution = localStorage.getItem("solution");
+    solution = (solution ? JSON.parse(solution) : emptyGrid);
+    for (const row in sudokuGrid) {
+      for (const entry in row) {
+	if (sudokuGrid[row][entry] == solution[row][entry]) {
+	  continue;
+	} else {
+	  console.log("NO SOLUTON");
+	  return "NO SOLUTION";
+	}
+	
+      }
+    };
+    return "COMPLETE!!"
+  };
+  
   
   return (
     <GridContext.Provider value={{sudokuGrid,
@@ -61,7 +79,8 @@ export const GridContextProvider = ({ children }) => {
 				  rowWarnings,
 				  setRowWarnings,
 				  colWarnings,
-				  setColWarnings}}>
+				  setColWarnings,
+				  checkPuzzle}}>
       {children}
     </GridContext.Provider>
   );
@@ -139,5 +158,4 @@ const parseAPI = (data) => {
   }
 };
   
-
   
