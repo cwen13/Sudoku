@@ -93,11 +93,12 @@ export const useGridContext = () => {
 };
 
 export const getSudokuInfo = async (difficulty) => {
-  let APIdata = await fetch("/api/sudoku/easy")
+
+  let APIdata = await fetch(`/api/sudoku/${difficulty}`)
     .then(response => response.json())
     .then(data => parseAPI(data.info))
       .catch(error => {
-	console.log("Error fetching Sudoku puzzle:", error);
+	console.log("Error fetching Sudoku puzzle(REACT):", error);
       });
   return APIdata;
 };

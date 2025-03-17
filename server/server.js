@@ -1,11 +1,11 @@
 const express = require("express");
 const cors = require("cors");
 
-const PORT = process.env.PORT || 5000;
+
+const PORT = process.env.PORT || 3000;
 const app = express();
 
 app.use(cors());
-app.use(express.json());
 
 app.get("/api", (req,res) => {
   console.log("HELOW");
@@ -15,7 +15,9 @@ app.get("/api", (req,res) => {
 app.get("/api/sudoku/easy", (req,res) => {
   const sudokuStuff = fetch("https://youdosudoku.com/api/", {
     method: "POST",
-    headers: {"Content-Type": "application/json"},
+    headers: {
+      "Content-Type": "application/json"
+    },
     body: JSON.stringify({
       difficulty: "easy", // "easy", "medium", or "hard" (defaults to "easy")
       solution: true, // true or false (defaults to true)
@@ -25,7 +27,7 @@ app.get("/api/sudoku/easy", (req,res) => {
 	.then(response =>  response.json())
 	.then(data => res.send({info: data}))
 	.catch(error => {
-	  console.log("Error fetching Sudoku puzzle:", error);
+	  console.log("Error fetching Sudoku puzzle(API):", error);
 	  res.status(500).send({error: "Failed to fetch Sudoku puzzle"});
 	});
 })
