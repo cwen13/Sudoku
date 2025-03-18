@@ -95,7 +95,7 @@ export const useGridContext = () => {
 export const getSudokuInfo = async (difficulty) => {
 
   //  let APIdata = await fetch(`/api/sudoku/${difficulty}`)
-  // vercel backend api
+  // vercel backend need to update
   let APIdata = await fetch(`https://sudoku-backend.vercel.app/api/sudoku/${difficulty}`)
     .then(response => response.json())
     .then(data => parseAPI(data.info))
