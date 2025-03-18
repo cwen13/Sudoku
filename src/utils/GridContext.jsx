@@ -58,10 +58,9 @@ export const GridContextProvider = ({ children }) => {
     solution = (solution ? JSON.parse(solution) : emptyGrid);
     for (const row in sudokuGrid) {
       for (const entry in row) {
-	if (sudokuGrid[row][entry] == solution[row][entry]) {
+	if (sudokuGrid[row][entry].value == solution[row][entry].value) {
 	  continue;
 	} else {
-	  console.log("NO SOLUTON");
 	  return "NO SOLUTION";
 	}
 	

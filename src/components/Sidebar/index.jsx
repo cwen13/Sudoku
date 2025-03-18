@@ -6,10 +6,13 @@ import "./style.css";
 
 const Sidebar = (props) => {
 
-  const { setSudokuGrid,
-	  highlight,
-	  setHightlight,
-	  checkPuzzle } = useGridContext(); 
+  const {
+    setSudokuGrid,
+    highlight,
+    setHightlight,
+    checkPuzzle,
+    solved
+  } = useGridContext(); 
 
   const solve = () => {
     setSudokuGrid(JSON.parse(localStorage.getItem("solution")));
@@ -17,6 +20,7 @@ const Sidebar = (props) => {
   
   return(
     <section className="sidebar">
+      {solved ? <p>SOLVED</p> : ""}
       <Selection />
       <section id="gameplay">
 	<button id="reset"
