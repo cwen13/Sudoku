@@ -8,7 +8,7 @@ const app = express();
 app.use(cors());
 
 app.get("/api", (req,res) => {
-  console.log("HELOW");
+  console.log("HELO");
   res.send({message: "Hello from express"});
 });
 
