@@ -1,11 +1,18 @@
-const serverless = require("serverless-http");
+//const serverless = require("serverless-http")
 const express = require("express");
 const cors = require("cors");
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 const app = express();
 
 app.use(cors());
+
+console.log("EELO FROM THER SERVER");
+
+app.get("/", (req,res) => {
+  console.log("HERE WE ARE");
+  res.send("Congrats I am up and running on VERCEL!!");
+});
 
 app.get("/api", (req,res) => {
   console.log("HELO");
@@ -69,10 +76,9 @@ app.get("/api/sudoku/hard", (req,res) => {
 	});
 })
 
-
-
 app.listen(PORT, () => {
   console.log(`Listening on port: ${PORT}`)
 });
 
-module.exports = serverless(app);
+
+module.exports = app;

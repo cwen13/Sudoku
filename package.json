@@ -4,8 +4,8 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "concurrently \"cd server && nodemon server.js\" \"vite\"",
-    "start": "concurrently \"cd server && npm run start\" \"vite\"",
+    "dev": "vite dev",
+    "start": "vite",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"
