@@ -10,12 +10,22 @@ const Cell = (props) => {
 	  selectValue,
 	  setSelectValue,
 	  rowWarnings,
-	  colWarnings
+	  colWarnings,
+	  setUndoGrid,
+	  undoGrid
 	} = useGridContext(); 
   
   const [isEditing, setIsEditing] = useState(false);
 
   const cellValueRef = React.createRef();
+
+  useEffect(() => {
+    if(isEditing) {
+      if(cellValueRef.current) {
+	cellValueRef.current.select()
+      }
+    }
+  }, [isEditing]);
 
   let col = (props.index % 9) + 1;
   let row = Math.floor(props.index / 9) + 1;
@@ -46,16 +56,8 @@ const Cell = (props) => {
     } else {
       newSudokuGrid[`r${row}`][col-1].value = "";
       setSudokuGrid(newSudokuGrid);
-    }      
-  };
-
-  useEffect(() => {
-    if(isEditing) {
-      if(cellValueRef.current) {
-	cellValueRef.current.select()
-      }
     }
-  }, [isEditing]);
+  };
 
   const blockNumber = (index) => {
     let block1 = [ 0, 1, 2, 9,10,11,18,19,20];

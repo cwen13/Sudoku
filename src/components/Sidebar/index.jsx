@@ -11,12 +11,24 @@ const Sidebar = (props) => {
     highlight,
     setHightlight,
     checkPuzzle,
-    solved
+    solved,
+    setSolved,
+    undoGrid,
+    setUndoGrid
   } = useGridContext(); 
 
   const solve = () => {
     setSudokuGrid(JSON.parse(localStorage.getItem("solution")));
   }
+
+  const undo = () => {
+    if(undoGrid.length > 1) {
+      console.log("UNDOGRID:", undoGrid[undoGrid.length-2]);
+      setSudokuGrid(undoGrid[undoGrid.length-2]);
+      console.log("NEW UNDOGRID:", undoGrid.splice(undoGrid.length-2));
+      setUndoGrid(undoGrid.splice(undoGrid.length-2));
+    };
+  };
   
   return(
     <section className="sidebar">
@@ -25,12 +37,17 @@ const Sidebar = (props) => {
       <section id="gameplay">
 	<button id="reset"
 		type="button"
-		onClick={() => setSudokuGrid(emptyGrid)}
+		onClick={() =>{
+		  setSolved(false);
+		  setUndoGrid([]);
+		  setSudokuGrid(emptyGrid);
+		}}
 	>
 	  reset
 	</button>
 	<button id="undo"
 		type="button"
+		onClick={() => undo()}
 	>
 	  undo
 	</button>

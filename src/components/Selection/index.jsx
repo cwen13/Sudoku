@@ -5,11 +5,12 @@ import "./style.css";
 
 const Selection = (props) => {
 
-  const { setSudokuGrid } = useGridContext();
+  const { setSudokuGrid, setSolved } = useGridContext();
   
   const handleButtonClick = async (e) => {
     console.log(e.target.id);
     let newGrid = await getSudokuInfo(e.target.id);
+    setSolved(false);
     setSudokuGrid(newGrid.puzzle);
     localStorage.setItem("solution", JSON.stringify(newGrid.solution));
   };

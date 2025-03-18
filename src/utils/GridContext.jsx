@@ -43,8 +43,13 @@ export const GridContextProvider = ({ children }) => {
     });
 
   const [solved, setSolved] = useState(false);
+
+  const [undoGrid, setUndoGrid] = useState([]);
   
   useEffect(() => {
+    if(sudokuGrid != emptyGrid) {
+      setUndoGrid([...undoGrid, JSON.parse(JSON.stringify(sudokuGrid))]);
+    }
     localStorage.setItem("sudokuGrid", JSON.stringify(sudokuGrid));
   }, [ sudokuGrid ]);
 
@@ -83,7 +88,10 @@ export const GridContextProvider = ({ children }) => {
 				  colWarnings,
 				  setColWarnings,
 				  checkPuzzle,
-				  solved}}>
+				  solved,
+				  setSolved,
+				  undoGrid,
+				  setUndoGrid}}>
       {children}
     </GridContext.Provider>
   );
