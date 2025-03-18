@@ -4,15 +4,18 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import Grid from "./components/Grid"; 
 import Sidebar from "./components/Sidebar";
-import { GridContextProvider } from "./utils/GridContext";
+import { GridContextProvider, useGridContext } from "./utils/GridContext";
 
 function App() {
+
+  const { solved } = useGridContext();
   
   return (
     <>
       <GridContextProvider>
       <header>
 	<p>REACTJS:  Sudoku</p>
+	{solved ? <p>SOLVED</p> : ""}
       </header>
       <section className="main-page">
 	<Grid id="grid" />

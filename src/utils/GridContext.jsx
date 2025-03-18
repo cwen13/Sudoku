@@ -41,6 +41,8 @@ export const GridContextProvider = ({ children }) => {
       c4:[],c5:[],c6:[],
       c7:[],c8:[],c9:[]
     });
+
+  const [solved, setSolved] = useState(false);
   
   useEffect(() => {
     localStorage.setItem("sudokuGrid", JSON.stringify(sudokuGrid));
@@ -65,6 +67,7 @@ export const GridContextProvider = ({ children }) => {
 	
       }
     };
+    setSolved(true);
     return "COMPLETE!!"
   };
   
@@ -80,7 +83,8 @@ export const GridContextProvider = ({ children }) => {
 				  setRowWarnings,
 				  colWarnings,
 				  setColWarnings,
-				  checkPuzzle}}>
+				  checkPuzzle,
+				  solved}}>
       {children}
     </GridContext.Provider>
   );
