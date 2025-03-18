@@ -13,6 +13,7 @@ app.get("/api", (req,res) => {
 });
 
 app.get("/api/sudoku/easy", (req,res) => {
+  console.log("API CALLING");
   const sudokuStuff = fetch("https://youdosudoku.com/api/", {
     method: "POST",
     headers: {
