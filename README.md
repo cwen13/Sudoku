@@ -1,12 +1,29 @@
-# React + Vite
+# React Sudoku
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+React Sudoku game thrown together to get back up to speed with React
 
-Currently, two official plugins are available:
+## Description
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Sudoku game in browser with tiny Express server to handle API calls.
 
-## Expanding the ESLint configuration
+React client with a few components using useContext to maintain continuity.
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+The Express server is found in the API directory.
+
+### Comments
+
+Can use some styling with some improvement on functionality but a good start for a first time back project.
+Feel free to send in comments or anything! [Cody](mailto:cwenrich13@gmail.com)
+
+## Author
+
+Cody Wenrich-Clegg
+
+## License
+
+GPL-3.0
+
+## Acknowledgments
+
+- Reddit (even with the rough start)
+- Ollama's codellama to help clarify some things
