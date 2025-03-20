@@ -21,7 +21,7 @@ function App() {
 	<Grid id="grid" />
 	<Sidebar id="sidebar" />
       </section>
-      </Analytics>
+      <Analytics/>
       <footer>
 	<div>
 	  <p>Made with React and Vite by Cody Wenrich-Clegg</p>
