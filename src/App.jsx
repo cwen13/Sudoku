@@ -13,7 +13,6 @@ function App() {
   
   return (
     <>
-      <Analytics>
       <GridContextProvider>
       <header>
 	<p>REACTJS:  Sudoku</p>
@@ -22,6 +21,7 @@ function App() {
 	<Grid id="grid" />
 	<Sidebar id="sidebar" />
       </section>
+      </Analytics>
       <footer>
 	<div>
 	  <p>Made with React and Vite by Cody Wenrich-Clegg</p>
@@ -35,7 +35,6 @@ function App() {
       </footer>
 
       </GridContextProvider>
-      </Analytics>
     </>
   )
 }
