@@ -4,7 +4,6 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import Grid from "./components/Grid"; 
 import Sidebar from "./components/Sidebar";
-import { Analytics } from "@vercel/analytics";
 import { GridContextProvider } from "./utils/GridContext";
 
 function App() {
@@ -21,7 +20,7 @@ function App() {
 	<Grid id="grid" />
 	<Sidebar id="sidebar" />
       </section>
-      <Analytics/>
+
       <footer>
 	<div>
 	  <p>Made with React and Vite by Cody Wenrich-Clegg</p>
