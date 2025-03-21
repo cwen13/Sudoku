@@ -32,7 +32,7 @@ const Sidebar = (props) => {
   
   return(
     <section className="sidebar">
-      {solved ? <p>SOLVED</p> : ""}
+      {solved ? <p>SOLVED</p> : <p>No qutie solved</p>}
       <Selection />
       <section id="gameplay">
 	<button id="reset"

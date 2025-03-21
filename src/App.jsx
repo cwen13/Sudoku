@@ -1,4 +1,4 @@
-import { React, useState } from 'react'
+import { React, useState, useEffect } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
@@ -8,16 +8,19 @@ import { GridContextProvider } from "./utils/GridContext";
 
 function App() {
 
-  const [mobile, setMobile] = useState(
-    window.matchMedia("(min-widdth: 350px)").matches
-  }
+  const mQuery = "(max-width: 400px)";
+  
+  const [mobile, setMobile] = useState(window.matchMedia(mQuery).matches);
 
-  useEffect(() => {
-    window
-      .matchMedia("(min-widdth: 350px)")
-      .addEventListener('change', e => setMatches(e.matches));
-  },[]);
- 
+  window.addEventListener('resize', () => {
+    // Update the width state variable when the window is resized
+    console.log("resize update:", window.matchMedia(mQuery).matches);
+    setMobile(window.matchMedia(mQuery).matches);
+  });
+
+  
+  console.log(window.matchMedia(mQuery).matches);
+
   return (
     <>
       <GridContextProvider>
@@ -25,7 +28,7 @@ function App() {
 	<p>REACTJS:  Sudoku</p>
       </header>
 	
-	<section className="main-page">
+	<section className={`main-page ${mobile && "mobile"}`}>
 	  <Grid id="grid" />
 	  <Sidebar id="sidebar" />
 	</section>
